@@ -1,0 +1,73 @@
+main {
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+}
+
+.vacancy h1 {
+    width: 740px;
+    color: #282828;
+    font-family: 'NeutralFace';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.vacancy .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vacancy .row .col:nth-child(2) {
+    width: 1140px;
+}
+
+.vacancy .row .col:nth-child(3) {
+    width: 360px;
+}
+
+.vacancy .row p {
+    width: 740px;
+    font-family: 'Inter';
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.col h3 {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+
+dl > div {
+    display: flex;
+}
+
+dl dt {
+    width: 75px;
+    font-family: 'Inter';
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #525252;
+    margin-bottom: 10px;
+}
+
+dl dd {
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+/*dl dd a {*/
+/*    text-decoration: none;*/
+/*    color: #000000;*/
+/*}*/
+
+
+

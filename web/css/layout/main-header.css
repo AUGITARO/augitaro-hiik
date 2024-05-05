@@ -1,0 +1,39 @@
+.main-header .container {
+    height: 80px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.main-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+}
+
+.main-header nav .nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-header nav .nav-list li .nav-link {
+    font-family: "Inter";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #000;
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: 200ms;
+}
+
+.main-header nav .nav-list li .nav-link:hover {
+    color: #3341F1;
+}
+
+.main-header nav .nav-list li:not(:last-child) {
+    margin-right: 36px;
+}

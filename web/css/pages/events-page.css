@@ -1,0 +1,44 @@
+.event-page img {
+    margin-top: 40px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.event-page .event-page-news {
+    width: 740px;
+    margin: 40px auto 0;
+}
+
+.event-page .event-page-news h3 {
+    font-family: 'NeutralFace';
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.event-page .event-page-news .news-text {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-page .event-page-news .news-text p {
+    font-family: 'Inter';
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.event-page .event-page-news .news-text b {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 10px;
+}

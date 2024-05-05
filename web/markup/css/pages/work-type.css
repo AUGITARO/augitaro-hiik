@@ -1,0 +1,124 @@
+main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 140px;
+}
+
+.work-type h1 {
+    margin-bottom: 20px;
+    font-family: 'NeutralFace';
+    font-size: 75px;
+    font-weight: 700;
+    font-style: normal;
+    color: #282828;
+}
+
+.work-type h3 {
+    font-family: 'NeutralFace';
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    transition: 300ms;
+    width: 556px;
+    color: #282828;
+}
+
+.work-type .work-type-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.work-type .work-type-list-item a {
+    display: flex;
+    flex-direction: column;
+    width: 740px;
+    height: 180px;
+    border-radius: 20px;
+    border: 1px solid #282828;
+    padding: 20px;
+    transition: 250ms;
+    margin-top: 20px;
+}
+
+.work-type .work-type-list-item a {
+    text-decoration: none;
+}
+
+.work-type .work-type-list-item:not(:nth-child(2n)) {
+    margin-right: 20px;
+}
+
+.work-type .work-type-tag {
+    align-self: flex-start;
+    font-family: 'Inter';
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    background-color: #3341F1;
+    border-radius: 4px;
+    color: #fff;
+    padding: 7px 12px;
+    margin-bottom: 10px;
+    order: -1;
+    transition: 300ms;
+}
+
+.work-type .work-type-list-item b {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    margin-top: auto;
+    position: relative;
+    height: 31px;
+    padding-right: 46px;
+    color: #000000;
+    font-family: 'Inter';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    transition: 300ms;
+}
+
+.work-type .work-type-list-item b::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 31px;
+    height: 31px;
+    background-image: url(../../img/icons/arrow-blue.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transform: translateY(-50%);
+    transition: 300ms;
+}
+
+.work-type .work-type-list-item:hover a {
+    background-color: #3341F1;
+}
+
+.work-type .work-type-list-item:hover h3 {
+    color: #fff;
+}
+
+.work-type .work-type-list-item:hover .work-type-tag {
+    background-color: white;
+    color: #3341F1;
+}
+
+.work-type .work-type-list-item:hover b {
+    color: #fff;
+}
+
+.work-type .work-type-list-item:hover b::after {
+    background: url(../../img/icons/arrow-white.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
