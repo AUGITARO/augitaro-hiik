@@ -1,0 +1,49 @@
+main {
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lectures h1 {
+    color: #282828;
+    font-family: "NeutralFace";
+    font-size: 75px;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.lectures .lecture-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lectures .lecture-list-item {
+    transition-duration: 300ms;
+}
+
+.lectures .lecture-list-item:hover {
+    transform: scale(1.2) translateY(13px);
+}
+
+.lectures .lecture-list-item a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.lectures .lecture-list-item a h3 {
+    margin-top: 5px;
+    font-family: NeutralFace;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    order: 2;
+}
+
+.lecture-list-item:not(:nth-child(12n)) {
+    margin-right: 40px;
+}
