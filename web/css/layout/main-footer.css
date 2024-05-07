@@ -80,3 +80,28 @@
     color: #F1F6FF;
     text-decoration: none;
 }
+
+.main-footer .inner-container .row .admin-info {
+    position: absolute;
+    top: 0;
+    left: 78%;
+    background-color: gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.main-footer .inner-container .row .admin-info p {
+    font-family: "sans-serif";
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.main-footer .inner-container .row .admin-info span {
+    font-family: "NeutralFace";
+    font-size: 20px;
+    font-weight: 700;
+    font-style: oblique;
+    line-height: normal;
+    color: #F1F6FF;
+}
