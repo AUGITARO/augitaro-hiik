@@ -12,11 +12,14 @@
 
 :root {
     --accent-font-color: #3341F1;
+    --main-footer-height: 490px;
+    --main-header-height: 100px;
+    /*--main-elem-margin-top: 140px;*/
+    /*--main-footer-margin-top: 140px;*/
 }
 
 body {
     min-height: 100vh;
-    padding-top: 20px;
     background-color: #EEF0F2;
 }
 
@@ -37,4 +40,10 @@ body {
     overflow: hidden;
     border: 0;
     clip: rect(0 0 0 0);
+}
+
+
+
+main {
+    min-height: calc(100vh - var(--main-footer-height) - var(--main-header-height));
 }

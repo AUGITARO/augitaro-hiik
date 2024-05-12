@@ -43,7 +43,7 @@ class AdminController extends Controller
     {
         $flashMessage = Yii::$app->session->getFlash(self::FLASH_KEY);
 
-        return $this->render('index', [
+        return $this->render('admin-panel', [
             'flashMessage' => $flashMessage,
         ]);
     }

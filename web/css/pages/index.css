@@ -284,6 +284,7 @@ h1 span:last-child::before {
 
 .feedback-form {
     margin-top: 140px;
+    padding-bottom: 140px;
 }
 
 .feedback-form .container {

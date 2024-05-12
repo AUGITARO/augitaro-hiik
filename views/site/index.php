@@ -46,7 +46,7 @@ $this->title = 'Community | Главная';
                 </a>
             </li>
             <li>
-                <a class="tab" href="./activity.html">
+                <a class="tab" href="<?= Url::to(['site/activity']) ?>">
                     <p class="tab-desc">
                         деятельность вне занятий - в этом разделе студенты могут выбрать интересующие их направления,
                         такие как спорт, искусство, наука, а так же найти нужные академические материалы.
@@ -55,7 +55,7 @@ $this->title = 'Community | Главная';
                 </a>
             </li>
             <li>
-                <a class="tab" href="./vacancy.html">
+                <a class="tab" href="<?= Url::to(['site/vacancy']) ?>">
                     <p class="tab-desc">
                         вакансии – это также особый раздел нашего сайта.
                         Здесь студенты могут найти информацию о вакансиях, стажировках и других возможностях для их будущей карьеры.
@@ -64,7 +64,7 @@ $this->title = 'Community | Главная';
                 </a>
             </li>
             <li>
-                <a class="tab" href="./events.html">
+                <a class="tab" href="<?= Url::to(['site/events']) ?>">
                     <p class="tab-desc">
                         мероприятия -студенты могут узнавать о предстоящих академических, спортивных, культурных и развлекательных мероприятиях в колледже.
                         Это дает им возможность быть в курсе всех интересных событий и принимать в них участие.
@@ -92,7 +92,7 @@ $this->title = 'Community | Главная';
             <?php endforeach; ?>
 
         </ul>
-        <a class="big-button" href="./events.html">Смотреть больше</a>
+        <a class="big-button" href="<?= Url::to(['site/events']) ?>">Смотреть больше</a>
     </div>
 </section>
 

@@ -11,36 +11,36 @@ $this->title = 'Log-Admin';
 
 ?>
 
-<section class="my-5">
+<section>
     <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <?php $form = ActiveForm::begin([
-                    'action' => Url::to(['user/login']),
-                    'method' => 'post',
-                    'enableAjaxValidation' => false,
-                    'options' => [
-                        // 'class' => '',
-                        'enctype' => 'application/x-www-form-urlencoded',
-                        'novalidate' => true,
-                        'autocomplete' => 'off'
-                    ],
-                        'fieldConfig' => [
-//                             'options' => ['class' => 'form-floating mb-3'],
-//                             'inputOptions' => ['class' => 'form-control'],
-//                             'labelOptions' => ['class' => ''],
-//                             'errorOptions' => ['class' => ''],
-//                             'template' => '{label}{input}{error}',
-                        ]
-                ]); ?>
+        <div class="form_container">
+            <?php $form = ActiveForm::begin([
+                'action' => Url::to(['user/login']),
+                'method' => 'post',
+                'enableAjaxValidation' => false,
+                'options' => [
+                    'class' => '',
+                    'enctype' => 'application/x-www-form-urlencoded',
+                    'novalidate' => true,
+                    'autocomplete' => 'off',
+                ],
+                'fieldConfig' => [
+                    'options' => ['class' => 'form_group'],
+                    'inputOptions' => ['class' => 'form_input'],
+//                  'labelOptions' => ['class' => ''],
+                    'errorOptions' => ['class' => 'error_form'],
+                    'template' => '{input}{error}',
+                ]
+            ]); ?>
 
-                <?= $form->field($model, 'login')->textInput() ?>
-                <?= $form->field($model, 'password')->input('password') ?>
+                <h1 class="h1-form">Авторизация</h1>
 
-                <?= Html::submitInput('Вход', ['class' => 'btn btn-primary']) ?>
+                <?= $form->field($model, 'login')->textInput(['placeholder' => 'Логин']) ?>
+                <?= $form->field($model, 'password')->input('password', ['placeholder' => 'Пароль']) ?>
 
-                <?php ActiveForm::end(); ?>
-            </div>
+                <?= Html::submitInput('Вход', ['class' => 'form_button']) ?>
+
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </section>

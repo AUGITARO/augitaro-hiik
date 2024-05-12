@@ -13,11 +13,11 @@ use yii\helpers\Url;
         <div class="inner-container">
             <div class="row">
                 <ul class="nav-list">
-                    <li class="nav-list-item"><a href="./index.html">Главная</a></li>
-                    <li class="nav-list-item"><a href="./vacancy.html">Вакансии</a></li>
-                    <li class="nav-list-item"><a href="./schedule.html">Расписание</a></li>
-                    <li class="nav-list-item"><a href="./events.html">Мероприятия</a></li>
-                    <li class="nav-list-item"><a href="./activity.html">Деятельность вне занятий</a></li>
+                    <li class="nav-list-item"><a href="<?= Url::to(['site/index']) ?>">Главная</a></li>
+                    <li class="nav-list-item"><a href="<?= Url::to(['site/vacancy']) ?>">Вакансии</a></li>
+                    <li class="nav-list-item"><a href="#">Расписание (Недоступно)</a></li>
+                    <li class="nav-list-item"><a href="<?= Url::to(['site/events']) ?>">Мероприятия</a></li>
+                    <li class="nav-list-item"><a href="<?= Url::to(['site/activity']) ?>">Деятельность вне занятий</a></li>
                 </ul>
                 <ul class="social-list">
                     <li class="social-list-item">
@@ -31,6 +31,12 @@ use yii\helpers\Url;
                         </a>
                     </li>
                 </ul>
+                <?php if(!Yii::$app->user->isGuest): ?>
+                    <a class="admin-info" href="<?= Url::to(['admin/index']) ?>" target="_blank">
+                        <p>Имя администратора:</p>
+                        <span><?= Yii::$app->user->identity->login ?></span>
+                    </a>
+                <?php endif; ?>
             </div>
             <a
                 class="work-email"
