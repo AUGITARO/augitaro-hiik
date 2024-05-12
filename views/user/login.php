@@ -14,34 +14,33 @@ $this->title = 'Log-Admin';
 <section>
     <div class="container">
         <div class="form_container">
-                <?php $form = ActiveForm::begin([
-                    'action' => Url::to(['user/login']),
-                    'method' => 'post',
-                    'enableAjaxValidation' => false,
-                    'options' => [
-                        'class' => 'form',
-                        'enctype' => 'application/x-www-form-urlencoded',
-                        'novalidate' => true,
-                        'autocomplete' => 'off',
-                    ],
-                    'fieldConfig' => [
-                        'options' => ['class' => 'form_group'],
-                        'inputOptions' => ['class' => 'form_input'],
-                        'labelOptions' => ['class' => 'form_label'],
-//                        'errorOptions' => ['class' => ''],
-                        'template' => '{label}{input}',
-                    ]
-                ]); ?>
+            <?php $form = ActiveForm::begin([
+                'action' => Url::to(['user/login']),
+                'method' => 'post',
+                'enableAjaxValidation' => false,
+                'options' => [
+                    'class' => '',
+                    'enctype' => 'application/x-www-form-urlencoded',
+                    'novalidate' => true,
+                    'autocomplete' => 'off',
+                ],
+                'fieldConfig' => [
+                    'options' => ['class' => 'form_group'],
+                    'inputOptions' => ['class' => 'form_input'],
+//                  'labelOptions' => ['class' => ''],
+                    'errorOptions' => ['class' => 'error_form'],
+                    'template' => '{input}{error}',
+                ]
+            ]); ?>
 
-                <h1 class="form_title">Bxoд</h1>
+                <h1 class="h1-form">Авторизация</h1>
 
-                <?= $form->field($model, 'login')->textInput() ?>
-                <?= $form->field($model, 'password')->input('password') ?>
+                <?= $form->field($model, 'login')->textInput(['placeholder' => 'Логин']) ?>
+                <?= $form->field($model, 'password')->input('password', ['placeholder' => 'Пароль']) ?>
 
                 <?= Html::submitInput('Вход', ['class' => 'form_button']) ?>
 
-                <?php ActiveForm::end(); ?>
-            <div>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </section>

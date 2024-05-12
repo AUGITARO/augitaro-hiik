@@ -1,3 +1,7 @@
+.main-header {
+    padding-top: 20px;
+}
+
 .main-header .container {
     height: 80px;
     border-radius: 10px;

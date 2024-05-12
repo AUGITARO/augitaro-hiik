@@ -15,7 +15,7 @@ use yii\helpers\Url;
                 <ul class="nav-list">
                     <li class="nav-list-item"><a href="<?= Url::to(['site/index']) ?>">Главная</a></li>
                     <li class="nav-list-item"><a href="<?= Url::to(['site/vacancy']) ?>">Вакансии</a></li>
-                    <li class="nav-list-item"><a href="./schedule.html">Расписание(Недоступно)</a></li>
+                    <li class="nav-list-item"><a href="#">Расписание (Недоступно)</a></li>
                     <li class="nav-list-item"><a href="<?= Url::to(['site/events']) ?>">Мероприятия</a></li>
                     <li class="nav-list-item"><a href="<?= Url::to(['site/activity']) ?>">Деятельность вне занятий</a></li>
                 </ul>
@@ -32,10 +32,10 @@ use yii\helpers\Url;
                     </li>
                 </ul>
                 <?php if(!Yii::$app->user->isGuest): ?>
-                    <div class="admin-info">
-                        <p>Admin name:</p>
+                    <a class="admin-info" href="<?= Url::to(['admin/index']) ?>" target="_blank">
+                        <p>Имя администратора:</p>
                         <span><?= Yii::$app->user->identity->login ?></span>
-                    </div>
+                    </a>
                 <?php endif; ?>
             </div>
             <a
