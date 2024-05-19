@@ -75,8 +75,9 @@
     margin: 90px 0 120px 0;
     font-family: "NeutralFace";
     font-size: 47px;
+    height: 60px;
     font-weight: 700;
-    line-height: normal;
+    line-height: 60px;
     color: #F1F6FF;
     text-decoration: none;
 }
