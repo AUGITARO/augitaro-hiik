@@ -1,11 +1,13 @@
 <?php
 
 /** @var yii\web\view $this */
+/** @var \app\models\forms\SuggestionForm $model */
 /** @var Event $events */
 
 use app\models\Event;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
 $this->title = 'Community | Главная';
 
@@ -100,44 +102,33 @@ $this->title = 'Community | Главная';
     <div class="container">
         <h2>Есть идея или&nbsp;объявление?</h2>
         <p>Если у вас есть идея или интересное предложение, то&nbsp;оставьте нам сообщение и мы его рассмотрим</p>
-        <form
-            action=""
-            method="post"
-            enctype="application/x-www-form-urlencoded"
-            autocomplete="off"
-            novalidate
-        >
-            <div class="form-group">
-                <div class="error">Введите Имя</div>
-                <input
-                    class="input-class"
-                    type="text"
-                    name=""
-                    value=""
-                    placeholder="Имя"
-                    required
-                >
-            </div>
-            <div class="form-group">
-                <div class="error">Такой e-mail не существует или он написан некорректно</div>
-                <input
-                    class="input-class"
-                    type="text"
-                    name=""
-                    value=""
-                    placeholder="Почта"
-                    required
-                >
-            </div>
-            <div class="form-group">
-                <div class="error">Введите сообщение</div>
-                <textarea
-                    name=""
-                    placeholder="Сообщение"
-                    required
-                ></textarea>
-            </div>
-            <input class="big-button" type="submit" value="Оставить сообщение">
-        </form>
+        <?php $form = ActiveForm::begin([
+            'action' => Url::to(['site/index']),
+            'method' => 'post',
+            'enableAjaxValidation' => false,
+            'options' => [
+                'class' => 'form',
+                'enctype' => 'application/x-www-form-urlencoded',
+                'novalidate' => true,
+                'autocomplete' => 'off',
+            ],
+            'fieldConfig' => [
+                'options' => ['class' => 'form-group'],
+                'inputOptions' => ['class' => 'input-class'],
+//                  'labelOptions' => ['class' => ''],
+                'errorOptions' => ['class' => 'error'],
+                'template' => '{input}{error}',
+            ]
+        ]); ?>
+
+            <?= $form->field($model, 'username')->textInput(['placeholder' => 'Имя']) ?>
+            <?= $form->field($model, 'email')->input('text', ['placeholder' => 'Почта']) ?>
+            <?= $form
+                    ->field($model, 'message', ['inputOptions' => ['class' => '']])
+                    ->textarea(['placeholder' => 'Сообщение']) ?>
+
+            <?= Html::submitInput('Оставить сообщение', ['class' => 'big-button']) ?>
+
+        <?php ActiveForm::end(); ?>
     </div>
 </section>

@@ -3,8 +3,12 @@
 namespace app\controllers;
 
 use app\models\Event;
+use app\models\forms\SuggestionForm;
+use app\models\Suggestion;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use Yii;
+use yii\web\Response;
 
 class SiteController extends Controller
 {
@@ -30,18 +34,37 @@ class SiteController extends Controller
     {
         return $this->render('activity');
     }
+
     public function actionEvents(): string
     {
         return $this->render('events');
     }
 
-    public function actionIndex(): string
+    public function actionIndex(): Response|string
     {
-        // $this->layout = 'main';
+        $model = new SuggestionForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+
+            if ($model->validate()) {
+                $suggestion = new Suggestion();
+
+                $suggestion->username = $model->username;
+                $suggestion->email = $model->email;
+                $suggestion->message = $model->message;
+
+                if ($suggestion->save()) {
+                    return $this->refresh();
+                }
+            }
+        }
+
         $events = Event::find()->limit(4)->all();
 
         return $this->render('index', [
-            'events' => $events
+            'events' => $events,
+            'model' => $model,
         ]);
     }
 

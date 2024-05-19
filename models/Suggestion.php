@@ -31,7 +31,6 @@ class Suggestion extends ActiveRecord
                 ['email', 'required'],
                 ['email', 'string', 'max' => 128],
                 ['email', 'email'],
-//                ['email', 'unique'],
 
                 ['message', 'string'],
                 ['message', 'required'],

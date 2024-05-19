@@ -200,7 +200,19 @@ h1 span:last-child::before {
 .relevant-news .news-tab-list {
     display: flex;
     margin-top: 20px;
-    justify-content: space-between;
+}
+
+.relevant-news .news-tab-list li:not(:first-child) {
+    margin-left: 20px;
+    transition-duration: 300ms;
+}
+
+.relevant-news .news-tab-list li {
+    transition-duration: 300ms;
+}
+
+.relevant-news .news-tab-list li:hover {
+    transform: translateY(-5px);
 }
 
 .news-tab {
@@ -223,6 +235,7 @@ h1 span:last-child::before {
     width: 360px;
     object-fit: cover;
     object-position: center;
+    border-radius: 8px;
 }
 
 .tag {
