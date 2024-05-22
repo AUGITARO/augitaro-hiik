@@ -22,7 +22,7 @@ class SiteController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['activity', 'events', 'index', 'vacancy'],
+                        'actions' => ['activity', 'events', 'index', 'vacancy', 'event-page'],
                         'roles' => ['?', '@'],
                     ],
                 ],
@@ -38,6 +38,15 @@ class SiteController extends Controller
     public function actionEvents(): string
     {
         return $this->render('events');
+    }
+
+    public function actionEventPage(): string
+    {
+        $event = Event::find()->where(['id' => Yii::$app->request->get('id') ])->one();
+
+        return $this->render('event-page', [
+            'event' => $event,
+        ]);
     }
 
     public function actionIndex(): Response|string

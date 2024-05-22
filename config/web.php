@@ -54,6 +54,7 @@ $config = [
                 '/create-event' => 'admin/create-event',
                 '/generate' => 'admin/generate-token',
                 '/events' => 'site/events',
+                '/event-page' => 'site/event-page',
                 '/login' => 'user/login',
                 '/logout' => 'user/logout',
                 '/signup' => 'user/signup',
