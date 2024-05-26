@@ -8,11 +8,10 @@ use app\services\Event\EventService;
 use app\services\Token\TokenService;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\Response;
 use yii\web\UploadedFile;
 
-class AdminController extends Controller
+class AdminController extends BaseController
 {
     const DEFAULT_TOKEN_COUNT = 10;
     const FLASH_KEY = 'eventCreated';
