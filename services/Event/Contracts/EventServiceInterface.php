@@ -6,5 +6,5 @@ use app\models\forms\EventForm;
 
 interface EventServiceInterface
 {
-    public function create(EventForm $model): bool;
+    public function create(EventForm $eventForm): bool;
 }
