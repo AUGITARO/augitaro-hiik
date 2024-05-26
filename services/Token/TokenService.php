@@ -43,4 +43,3 @@ class TokenService implements TokenServiceInterface
         return $token->save();
     }
 }
-
