@@ -42,7 +42,7 @@ class SiteController extends Controller
 
     public function actionEventPage(): string
     {
-        $event = Event::find()->where(['id' => Yii::$app->request->get('id') ])->one();
+        $event = Event::findOne(['id' => Yii::$app->request->get('id') ]);
 
         return $this->render('event-page', [
             'event' => $event,
