@@ -1,19 +1,19 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 namespace app\controllers;
 
-use app\models\Event;
 use app\models\forms\EventForm;
 use app\services\Event\EventService;
 use app\services\Token\TokenService;
 use Yii;
+use yii\base\Exception;
 use yii\filters\AccessControl;
 use yii\web\Response;
 use yii\web\UploadedFile;
 
 class AdminController extends BaseController
 {
-    const DEFAULT_TOKEN_COUNT = 10;
+    const TOKEN_COUNT = 10;
     const FLASH_KEY = 'eventCreated';
     const PASSWORD = 'amogus';
 
@@ -32,6 +32,9 @@ class AdminController extends BaseController
                         'allow' => true,
                         'actions' => ['generate-token'],
                         'roles' => ['?', '@'],
+                        'matchCallback' => function () {
+                            return Yii::$app->request->get('password') === self::PASSWORD;
+                        }
                     ],
                 ],
             ],
@@ -56,7 +59,10 @@ class AdminController extends BaseController
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
 
             if ($model->validate() && (new EventService())->create($model)) {
-                Yii::$app->session->setFlash(self::FLASH_KEY, "Вы успешно создали мероприятие $model->title");
+                Yii::$app->session->setFlash(
+                    self::FLASH_KEY,
+                    "Вы успешно создали мероприятие $model->title"
+                );
                 return $this->redirect(['admin/index']);
             }
         }
@@ -66,15 +72,13 @@ class AdminController extends BaseController
         ]);
     }
 
+    /**
+     * @throws Exception
+     */
     public function actionGenerateToken(): string
     {
-        $count = Yii::$app->request->get('count', self::DEFAULT_TOKEN_COUNT);
-        $password = Yii::$app->request->get('password');
-        if ($password == self::PASSWORD): {
-            $resultCount = (new TokenService())->createMany($count);
-            return "Вы успешно создали $resultCount токенов";
-        } endif;
-
-        return 'Введите пароль';
+        $count = Yii::$app->request->get('count', self::TOKEN_COUNT);
+        $resultCount = (new TokenService())->createMany($count);
+        return "Вы успешно создали $resultCount токенов";
     }
 }

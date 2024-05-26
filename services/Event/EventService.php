@@ -9,16 +9,16 @@ use Yii;
 
 class EventService implements EventServiceInterface
 {
-    public function create(EventForm $model): bool
+    public function create(EventForm $eventForm): bool
     {
         $event = new Event();
-        $event->title = $model->title;
-        $event->description = $model->description;
-        $event->date = $model->date;
+        $event->title = $eventForm->title;
+        $event->description = $eventForm->description;
+        $event->date = $eventForm->date;
         $event->user_id = Yii::$app->user->id;
 
-        $fileName = uniqid("{$model->imageFile->baseName}_") . '.' . $model->imageFile->extension;
-        $model->imageFile->saveAs('uploads/event/' . $fileName);
+        $fileName = uniqid("{$eventForm->imageFile->baseName}_") . '.' . $eventForm->imageFile->extension;
+        $eventForm->imageFile->saveAs('uploads/event/' . $fileName);
         $event->image_path = $fileName;
 
         return $event->save();

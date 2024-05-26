@@ -7,6 +7,7 @@ use app\models\forms\SignupForm;
 use app\models\User;
 use app\services\User\UserService;
 use Yii;
+use yii\base\Exception;
 use yii\filters\AccessControl;
 use yii\web\Response;
 
@@ -57,14 +58,18 @@ class UserController extends BaseController
         return $this->redirect(['user/login']);
     }
 
+    /**
+     * @throws Exception
+     * @throws \yii\db\Exception
+     */
     public function actionSignup(): Response|string
     {
         $model = new SignupForm();
 
         if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
-            if ($model->validate()) {
-                (new UserService())->create($model);
+
+            if ($model->validate() && (new UserService())->create($model)) {
                 return $this->redirect(['user/login']);
             }
         }

@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Event;
 use app\models\forms\SuggestionForm;
 use app\models\Suggestion;
+use app\services\Suggestion\SuggestionService;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Response;
@@ -52,16 +53,8 @@ class SiteController extends BaseController
         if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
 
-            if ($model->validate()) {
-                $suggestion = new Suggestion();
-
-                $suggestion->username = $model->username;
-                $suggestion->email = $model->email;
-                $suggestion->message = $model->message;
-
-                if ($suggestion->save()) {
-                    return $this->refresh();
-                }
+            if ($model->validate() && (new SuggestionService())->create($model)) {
+                return $this->refresh();
             }
         }
 

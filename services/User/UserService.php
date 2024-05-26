@@ -6,23 +6,34 @@ use app\models\User;
 use app\models\forms\SignupForm;
 use app\services\Token\TokenService;
 use app\services\User\Contracts\UserServiceInterface;
+use Throwable;
 use Yii;
+use yii\db\Exception;
+use yii\db\StaleObjectException;
 
 class UserService implements UserServiceInterface
 {
-    public function create(SignupForm $model): void
+    /**
+     * @throws Exception
+     * @throws Throwable
+     * @throws StaleObjectException
+     * @throws \yii\base\Exception
+     */
+    public function create(SignupForm $signupForm): bool
     {
         $transaction = User::getDb()->beginTransaction();
 
         $user = new User();
-        $user->login = $model->login;
-        $user->password_hash = Yii::$app->security->generatePasswordHash($model->password);
+        $user->login = $signupForm->login;
+        $user->password_hash = Yii::$app->security->generatePasswordHash($signupForm->password);
 
         if ($user->save()) {
-            (new TokenService())->delete($model->token);
+            (new TokenService())->delete($signupForm->token);
             $transaction->commit();
+            return true;
         }
 
         $transaction->rollBack();
+        return false;
     }
 }
