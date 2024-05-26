@@ -8,12 +8,10 @@ use app\models\User;
 use app\services\User\UserService;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\Response;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
-    public $layout = 'main';
 
     public function behaviors(): array
     {
@@ -75,5 +73,4 @@ class UserController extends Controller
             'model' => $model,
         ]);
     }
-
 }

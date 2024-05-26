@@ -5,13 +5,26 @@ namespace app\controllers;
 use app\models\Event;
 use app\models\forms\SuggestionForm;
 use app\models\Suggestion;
-use yii\web\Controller;
 use Yii;
+use yii\filters\AccessControl;
 use yii\web\Response;
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
-    public $layout = 'main';
+    public function behaviors(): array
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [ '?', '@'],
+                    ],
+                ],
+            ],
+        ];
+    }
 
     public function actionActivity(): string
     {
@@ -64,5 +77,4 @@ class SiteController extends Controller
     {
         return $this->render('vacancy');
     }
-
 }
