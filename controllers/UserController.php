@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 namespace app\controllers;
 
@@ -6,6 +6,7 @@ use app\models\forms\LoginForm;
 use app\models\forms\SignupForm;
 use app\models\User;
 use app\services\User\UserService;
+use Throwable;
 use Yii;
 use yii\base\Exception;
 use yii\filters\AccessControl;
@@ -60,6 +61,7 @@ class UserController extends BaseController
 
     /**
      * @throws Exception
+     * @throws Throwable
      * @throws \yii\db\Exception
      */
     public function actionSignup(): Response|string

@@ -1,10 +1,9 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 namespace app\controllers;
 
 use app\models\Event;
 use app\models\forms\SuggestionForm;
-use app\models\Suggestion;
 use app\services\Suggestion\SuggestionService;
 use Yii;
 use yii\filters\AccessControl;
