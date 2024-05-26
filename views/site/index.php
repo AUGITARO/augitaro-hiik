@@ -85,7 +85,7 @@ $this->title = 'Community | Главная';
 
             <?php foreach ($events as $event): ?>
                 <li>
-                    <a class="news-tab" href="./events-page.html">
+                    <a class="news-tab" href="<?= Url::to(['site/event-page', 'id' => $event->id])?>">
                         <h3 class="news-tab-text"><?= Html::encode($event->title) ?></h3>
                         <img src="uploads/event/<?= Html::encode($event->image_path) ?>" alt="<?= Html::encode($event->title) ?>">
                         <time class="tag"><?= date('Y F d', strtotime($event->date)) ?></time>

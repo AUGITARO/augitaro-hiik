@@ -5,7 +5,6 @@ namespace app\controllers;
 use app\models\Event;
 use app\models\forms\SuggestionForm;
 use app\models\Suggestion;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use Yii;
 use yii\web\Response;
@@ -13,22 +12,6 @@ use yii\web\Response;
 class SiteController extends Controller
 {
     public $layout = 'main';
-
-    public function behaviors(): array
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['activity', 'events', 'index', 'vacancy'],
-                        'roles' => ['?', '@'],
-                    ],
-                ],
-            ],
-        ];
-    }
 
     public function actionActivity(): string
     {
@@ -38,6 +21,15 @@ class SiteController extends Controller
     public function actionEvents(): string
     {
         return $this->render('events');
+    }
+
+    public function actionEventPage(): string
+    {
+        $event = Event::findOne(Yii::$app->request->get('id'));
+
+        return $this->render('event-page', [
+            'event' => $event,
+        ]);
     }
 
     public function actionIndex(): Response|string
@@ -67,7 +59,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
 
     public function actionVacancy(): string
     {

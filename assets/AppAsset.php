@@ -32,6 +32,7 @@ class AppAsset extends AssetBundle
         'css/pages/events.css',
         'css/pages/activity.css',
         'css/pages/form.css',
+        'css/pages/event-page.css',
     ];
     public $js = [
 
