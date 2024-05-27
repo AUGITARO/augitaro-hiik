@@ -3,6 +3,10 @@ main {
     flex-direction: column;
 }
 
+.activities {
+    padding-bottom: 140px;
+}
+
 .activities h1 {
     color: #282828;
     font-family: "NeutralFace";
