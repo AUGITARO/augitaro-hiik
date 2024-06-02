@@ -5,6 +5,7 @@
 /** @var Event $events */
 
 use app\models\Event;
+use app\services\Support\SupportService;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
@@ -79,7 +80,7 @@ $this->title = 'Community | Главная';
                     <a class="news-tab" href="<?= Url::to(['site/event-page', 'id' => $event->id])?>">
                         <h3 class="news-tab-text"><?= Html::encode($event->title) ?></h3>
                         <img src="uploads/event/<?= Html::encode($event->image_path) ?>" alt="<?= Html::encode($event->title) ?>">
-                        <time class="tag"><?= date('Y F d', strtotime($event->date)) ?></time>
+                        <time class="tag"><?= SupportService::formatDate($event->date) ?></time>
                     </a>
                 </li>
             <?php endforeach; ?>
