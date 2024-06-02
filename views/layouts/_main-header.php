@@ -24,9 +24,6 @@ use yii\helpers\Url;
                 <li class="nav-list-item">
                     <a class="nav-link" href="<?= Url::to(['site/events']) ?>">Мероприятия</a>
                 </li>
-                <li class="nav-list-item">
-                    <a class="nav-link" href="./schedule.html">Расписание(Недоступно)</a>
-                </li>
             </ul>
         </nav>
     </div>

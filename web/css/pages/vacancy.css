@@ -3,6 +3,10 @@ main {
     flex-direction: column;
 }
 
+.vacancies {
+    padding-bottom: 140px;
+}
+
 .vacancies h1 {
     color: #282828;
     font-family: "NeutralFace";

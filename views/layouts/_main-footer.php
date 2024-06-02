@@ -15,7 +15,6 @@ use yii\helpers\Url;
                 <ul class="nav-list">
                     <li class="nav-list-item"><a href="<?= Url::to(['site/index']) ?>">Главная</a></li>
                     <li class="nav-list-item"><a href="<?= Url::to(['site/vacancy']) ?>">Вакансии</a></li>
-                    <li class="nav-list-item"><a href="#">Расписание (Недоступно)</a></li>
                     <li class="nav-list-item"><a href="<?= Url::to(['site/events']) ?>">Мероприятия</a></li>
                     <li class="nav-list-item"><a href="<?= Url::to(['site/activity']) ?>">Деятельность вне занятий</a></li>
                 </ul>

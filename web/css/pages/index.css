@@ -102,7 +102,7 @@ h1 span:last-child::before {
     display: flex;
     flex-direction: column;
     border: 1px solid #3341F1;
-    width: 360px;
+    width: 486px;
     height: 271px;
     padding: 95px 15px 20px;
     transition: 250ms;
@@ -125,10 +125,10 @@ h1 span:last-child::before {
 }
 
 .tabs .tab-desc {
-    width: 330px;
+    width: 461px;
     color: #3341F1;
     font-family: "Inter";
-    font-size: 15px;
+    font-size: 17px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -307,6 +307,10 @@ h1 span:last-child::before {
     align-items: center;
 }
 
+.feedback-form .form {
+    margin-top: 10px;
+}
+
 .feedback-form h2 {
     position: absolute;
     align-self: flex-start;
@@ -344,6 +348,7 @@ h1 span:last-child::before {
     margin-bottom: 10px;
 }
 
+
 .form-group .input-class {
     width: 740px;
     height: 60px;
@@ -362,7 +367,6 @@ h1 span:last-child::before {
     letter-spacing: 0em;
     text-align: left;
     color: #FF0000;
-    margin-bottom: 10px;
 }
 
 .feedback-form textarea {

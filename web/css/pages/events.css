@@ -3,6 +3,10 @@ main {
     flex-direction: column;
 }
 
+.events {
+    padding-bottom: 140px;
+}
+
 .events h1 {
     color: #282828;
     font-family: "NeutralFace";
