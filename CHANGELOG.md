@@ -7,9 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- added padding to sections [CH-4]
-- schedule page removed [CH-4]
-- added padding to inputs (suggestion form) [CH-4]
+- Add static method formatDate (SupportService) [CH-3]
+- Add padding to sections [CH-4]
+- Schedule page removed [CH-4]
+- Add padding to inputs (suggestion form) [CH-4]
 
 ### Added
 
