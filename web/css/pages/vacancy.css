@@ -1,9 +1,5 @@
-main {
-    display: flex;
-    flex-direction: column;
-}
-
 .vacancies {
+    margin-top: 140px;
     padding-bottom: 140px;
 }
 
@@ -119,6 +115,7 @@ main {
 
 .vacancies .vacancy-list-item p {
     margin-top: 20px;
+    height: 145px;
     font-family: Inter;
     font-size: 13px;
     font-weight: 400;
@@ -126,6 +123,8 @@ main {
     letter-spacing: 0em;
     text-align: left;
     transition: 300ms;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .vacancies .vacancy-list-item:hover p {

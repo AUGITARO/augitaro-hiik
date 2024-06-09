@@ -3,8 +3,10 @@
 namespace app\controllers;
 
 use app\models\forms\EventForm;
+use app\models\Vacancy\VacancyStoreForm;
 use app\services\Event\EventService;
 use app\services\Token\TokenService;
+use app\services\Vacancy\VacancyService;
 use Yii;
 use yii\base\Exception;
 use yii\filters\AccessControl;
@@ -14,7 +16,7 @@ use yii\web\UploadedFile;
 class AdminController extends BaseController
 {
     const TOKEN_COUNT = 10;
-    const FLASH_KEY = 'eventCreated';
+    const FLASH_KEY = 'dataCreated';
     const PASSWORD = 'amogus';
 
     public function behaviors(): array
@@ -25,7 +27,7 @@ class AdminController extends BaseController
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create-event'],
+                        'actions' => ['index', 'create-event', 'create-vacancy'],
                         'roles' => ['@'],
                     ],
                     [
@@ -61,13 +63,33 @@ class AdminController extends BaseController
             if ($model->validate() && (new EventService())->create($model)) {
                 Yii::$app->session->setFlash(
                     self::FLASH_KEY,
-                    "Вы успешно создали мероприятие $model->title"
+                    "Вы успешно создали мероприятие \"$model->title\""
                 );
                 return $this->redirect(['admin/index']);
             }
         }
 
         return $this->render('create-event', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionCreateVacancy(): Response|string
+    {
+        $model = new VacancyStoreForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+
+            if ($model->validate() && (new VacancyService())->create($model)) {
+                Yii::$app->session->setFlash(
+                    self::FLASH_KEY,
+                    "Вы успешно создали вакансию \"$model->title\""
+                );
+                return $this->redirect(['admin/index']);
+            }
+        }
+        return $this->render('create-vacancy', [
             'model' => $model,
         ]);
     }

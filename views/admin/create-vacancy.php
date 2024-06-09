@@ -1,13 +1,13 @@
 <?php
 
 /** @var yii\web\View $this */
-/** @var app\models\forms\EventForm $model */
+/** @var \app\models\Vacancy\VacancyStoreForm $model */
 
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = 'Создать мероприятие';
+$this->title = 'Создать вакансию';
 
 ?>
 <section class="my-5">
@@ -15,7 +15,7 @@ $this->title = 'Создать мероприятие';
         <div class="row">
             <div class="col-6">
                 <?php $form = ActiveForm::begin([
-                    'action' => Url::to(['admin/create-event']),
+                    'action' => Url::to(['admin/create-vacancy']),
                     'method' => 'post',
                     'enableAjaxValidation' => false,
                     'options' => [
@@ -36,7 +36,9 @@ $this->title = 'Создать мероприятие';
                 <?= $form->field($model, 'title')->textInput() ?>
                 <?= $form->field($model, 'description')->textInput() ?>
                 <?= $form->field($model, 'date')->input('date') ?>
-                <?= $form->field($model, 'imageFile')->fileInput() ?>
+                <?= $form->field($model, 'email')->textInput() ?>
+                <?= $form->field($model, 'tel')->input('tel') ?>
+                <?= $form->field($model, 'address')->textInput() ?>
 
                 <?= Html::submitInput('Создать', ['class' => '']) ?>
 

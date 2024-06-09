@@ -29,10 +29,12 @@ class AppAsset extends AssetBundle
         'css/pages/admin-panel.css',
         'css/pages/index.css',
         'css/pages/vacancy.css',
+        'css/pages/vacancy-page.css',
         'css/pages/events.css',
         'css/pages/activity.css',
         'css/pages/form.css',
         'css/pages/event-page.css',
+        'css/pages/login.css',
     ];
     public $js = [
 

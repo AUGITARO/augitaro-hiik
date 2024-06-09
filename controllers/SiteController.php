@@ -4,13 +4,17 @@ namespace app\controllers;
 
 use app\models\Event;
 use app\models\forms\SuggestionForm;
+use app\models\Vacancy\Vacancy;
+use app\services\Event\EventService;
 use app\services\Suggestion\SuggestionService;
+use app\services\Vacancy\VacancyService;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Response;
 
 class SiteController extends BaseController
 {
+    const DEF_COUNT = 4;
     public function behaviors(): array
     {
         return [
@@ -33,7 +37,14 @@ class SiteController extends BaseController
 
     public function actionEvents(): string
     {
-        return $this->render('events');
+        $count = intval(Yii::$app->request->get('count', self::DEF_COUNT));
+        $events = (new EventService)->findEvents($count);
+        $newCount = $count + self::DEF_COUNT;
+
+        return $this->render('events', [
+            'events' => $events,
+            'newCount' => $newCount,
+        ]);
     }
 
     public function actionEventPage(): string
@@ -67,6 +78,22 @@ class SiteController extends BaseController
 
     public function actionVacancy(): string
     {
-        return $this->render('vacancy');
+        $count = intval(Yii::$app->request->get('count', self::DEF_COUNT));
+        $vacancies = (new VacancyService)->findVacancies($count);
+        $newCount = $count + self::DEF_COUNT;
+
+        return $this->render('vacancy', [
+            'vacancies' => $vacancies,
+            'newCount' => $newCount,
+        ]);
+    }
+
+    public function actionVacancyPage(): string
+    {
+        $vacancy = Vacancy::findOne(Yii::$app->request->get('id'));
+
+        return $this->render('vacancy-page', [
+            'vacancy' => $vacancy,
+        ]);
     }
 }

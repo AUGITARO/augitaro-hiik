@@ -3,7 +3,10 @@ main {
     flex-direction: column;
 }
 
+
+
 .events {
+    margin-top: 140px;
     padding-bottom: 140px;
 }
 
@@ -86,6 +89,7 @@ main {
 .card-body {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .events .event-list-item b {

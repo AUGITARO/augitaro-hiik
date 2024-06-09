@@ -23,4 +23,12 @@ class EventService implements EventServiceInterface
 
         return $event->save();
     }
+
+    public function findEvents(int $count): array
+    {
+        return Event::find()
+            ->limit($count)
+            ->orderBy(['id' => SORT_DESC])
+            ->all();
+    }
 }
