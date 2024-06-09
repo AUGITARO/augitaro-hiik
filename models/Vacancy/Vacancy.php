@@ -1,7 +1,8 @@
 <?php
 
-namespace app\models;
+namespace app\models\Vacancy;
 
+use app\models\User;
 use yii\db\ActiveRecord;
 
 /**
@@ -14,6 +15,8 @@ use yii\db\ActiveRecord;
  * @property string $description
  * @property int $date
  * @property string $email
+ * @property string $tel
+ * @property string $address
  */
 class Vacancy extends ActiveRecord
 {
@@ -34,11 +37,21 @@ class Vacancy extends ActiveRecord
             ['description', 'required'],
             ['description', 'string'],
 
-            ['date', 'date'],
+            ['date', 'date', 'format' => 'php:Y-m-d'],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'string'],
+            ['email', 'email'],
+            ['email', 'unique', 'targetClass' => Vacancy::class, 'targetAttribute' => 'email'],
+
+            ['tel', 'trim'],
+            ['tel', 'required'],
+            ['tel', 'string'],
+
+            ['address', 'trim'],
+            ['address', 'required'],
+            ['address', 'string'],
 
             ['user_id', 'required'],
             ['user_id', 'integer'],
