@@ -1,4 +1,9 @@
-main {
+.vacancy {
+    margin-top: 140px;
+    margin-bottom: 140px;
+}
+
+.vacancies {
     margin-top: 140px;
     display: flex;
     flex-direction: column;

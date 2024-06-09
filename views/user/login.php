@@ -11,7 +11,7 @@ $this->title = 'Log-Admin';
 
 ?>
 
-<section>
+<section class="login">
     <div class="container">
         <div class="form_container">
             <?php $form = ActiveForm::begin([

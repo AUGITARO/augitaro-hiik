@@ -10,7 +10,6 @@ use yii\helpers\Url;
 $this->title = 'Создать мероприятие';
 
 ?>
-
 <section class="my-5">
     <div class="container">
         <div class="row">

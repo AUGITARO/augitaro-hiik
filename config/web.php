@@ -60,6 +60,7 @@ $config = [
                 '/logout' => 'user/logout',
                 '/signup' => 'user/signup',
                 '/vacancy' => 'site/vacancy',
+                '/vacancy-page' => 'site/vacancy-page',
             ],
         ],
     ],

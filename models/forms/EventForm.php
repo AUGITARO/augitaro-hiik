@@ -27,6 +27,7 @@ class EventForm extends Model
             ['date', 'trim'],
             ['date', 'required'],
             ['date', 'string'],
+            ['date', 'date', 'format' => 'php:Y-m-d'],
 
             ['imageFile', 'required'],
             ['imageFile', 'image', 'extensions' => 'png, jpg'],

@@ -16,6 +16,9 @@ trait VacancyTrait
             ['description', 'required'],
             ['description', 'string'],
 
+            ['date', 'trim'],
+            ['date', 'required'],
+            ['date', 'string'],
             ['date', 'date', 'format' => 'php:Y-m-d'],
 
             ['email', 'trim'],

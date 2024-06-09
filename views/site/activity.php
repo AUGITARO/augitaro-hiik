@@ -2,7 +2,7 @@
 
 /** @var yii\web\view $this */
 
-$this->title = 'Чем займешься?';
+$this->title = 'Деятельность вне занятий';
 
 ?>
 <section class="activities">

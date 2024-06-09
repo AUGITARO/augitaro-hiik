@@ -20,6 +20,8 @@ use yii\db\ActiveRecord;
  */
 class Vacancy extends ActiveRecord
 {
+    use VacancyTrait;
+
     public static function tableName(): string
     {
         return '{{vacancy}}';
@@ -27,35 +29,13 @@ class Vacancy extends ActiveRecord
 
     public function rules(): array
     {
-        return [
-            ['title', 'trim'],
-            ['title', 'required'],
-            ['title', 'string'],
-            ['title', 'unique', 'targetClass' => Vacancy::class, 'targetAttribute' => 'title'],
-
-            ['description', 'trim'],
-            ['description', 'required'],
-            ['description', 'string'],
-
-            ['date', 'date', 'format' => 'php:Y-m-d'],
-
-            ['email', 'trim'],
-            ['email', 'required'],
-            ['email', 'string'],
-            ['email', 'email'],
-            ['email', 'unique', 'targetClass' => Vacancy::class, 'targetAttribute' => 'email'],
-
-            ['tel', 'trim'],
-            ['tel', 'required'],
-            ['tel', 'string'],
-
-            ['address', 'trim'],
-            ['address', 'required'],
-            ['address', 'string'],
-
-            ['user_id', 'required'],
-            ['user_id', 'integer'],
-            ['user_id', 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id'],
-        ];
+        return array_merge(
+            [
+                ['user_id', 'required'],
+                ['user_id', 'integer'],
+                ['user_id', 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id']
+            ],
+            $this->getRules(),
+        );
     }
 }
