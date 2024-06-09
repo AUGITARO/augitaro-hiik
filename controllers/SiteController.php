@@ -33,7 +33,14 @@ class SiteController extends BaseController
 
     public function actionEvents(): string
     {
-        return $this->render('events');
+        $events = Event::find()
+            ->limit(intval(Yii::$app->request->get('count', 4)))
+            ->orderBy(['id' => SORT_DESC])
+            ->all();
+
+        return $this->render('events', [
+            'events' => $events,
+        ]);
     }
 
     public function actionEventPage(): string

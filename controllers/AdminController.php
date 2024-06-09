@@ -25,7 +25,7 @@ class AdminController extends BaseController
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create-event'],
+                        'actions' => ['index', 'create-event', 'create-vacancy'],
                         'roles' => ['@'],
                     ],
                     [
@@ -70,6 +70,11 @@ class AdminController extends BaseController
         return $this->render('create-event', [
             'model' => $model,
         ]);
+    }
+
+    public function actionCreateVacancy(): Response|string
+    {
+        return $this->render('create-vacancy', []);
     }
 
     /**

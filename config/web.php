@@ -52,6 +52,7 @@ $config = [
                 '/activity' => 'site/activity',
                 '/admin' => 'admin/index',
                 '/create-event' => 'admin/create-event',
+                '/create-vacancy' => 'admin/create-vacancy',
                 '/generate' => 'admin/generate-token',
                 '/events' => 'site/events',
                 '/event-page' => 'site/event-page',

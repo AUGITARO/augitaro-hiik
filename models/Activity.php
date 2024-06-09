@@ -24,7 +24,7 @@ class Activity extends ActiveRecord
         return [
             ['user_id', 'required'],
             ['user_id', 'integer'],
-//            [['user_id'], 'exist'],
+            ['user_id', 'exist'],
 
             ['activity_name', 'trim'],
             ['activity_name', 'required'],

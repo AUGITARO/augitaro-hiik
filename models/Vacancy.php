@@ -42,7 +42,7 @@ class Vacancy extends ActiveRecord
 
             ['user_id', 'required'],
             ['user_id', 'integer'],
-//            ['user_id', 'exist'],
+            ['user_id', 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id'],
         ];
     }
 }

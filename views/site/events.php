@@ -1,6 +1,12 @@
 <?php
 
 /** @var yii\web\view $this */
+/** @var Event $events */
+
+use app\models\Event;
+use app\services\Support\SupportService;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = 'Community | Мероприятия';
 
@@ -9,50 +15,19 @@ $this->title = 'Community | Мероприятия';
     <div class="container">
         <h1>Мероприятия</h1>
         <ul class="event-list">
-            <li class="event-list-item">
-                <a href="./events-page.html">
-                    <img src="img/example/news-2.png" width="340" height="265" alt="event">
-                    <div class="card-body">
-                        <h3>Завершился всероссийский хакатон связи</h3>
-                        <span class="tag">Состоится 12 января</span>
-                        <b>Читать подробнее</b>
-                    </div>
-                </a>
-            </li>
-
-            <li class="event-list-item">
-                <a href="./events-page.html">
-                    <img src="img/example/news-1.png" width="340" height="265" alt="event">
-                    <div class="card-body">
-                        <h3>Ищется разработчик на языке python для разработки сайта </h3>
-                        <span class="tag">Состоится 15 января</span>
-                        <b>Читать подробнее</b>
-                    </div>
-                </a>
-            </li>
-
-            <li class="event-list-item">
-                <a href="./events-page.html">
-                    <img src="img/example/news-3.png" width="340" height="265" alt="event">
-                    <div class="card-body">
-                        <h3>Какое то ультраважное мероприятие</h3>
-                        <span class="tag">Состоится 21 января</span>
-                        <b>Читать подробнее</b>
-                    </div>
-                </a>
-            </li>
-
-            <li class="event-list-item">
-                <a href="./events-page.html">
-                    <img src="img/example/news-4.png" width="340" height="265" alt="event">
-                    <div class="card-body">
-                        <h3>Какое то ультраневажное мероприятие</h3>
-                        <span class="tag">Состоится 17 января</span>
-                        <b>Читать подробнее</b>
-                    </div>
-                </a>
-            </li>
+            <?php foreach ($events as $event): ?>
+                <li class="event-list-item">
+                    <a href="<?= Url::to(['site/event-page', 'id' => $event->id])?>">
+                        <img src="uploads/event/<?= Html::encode($event->image_path) ?>" width="340" height="265" alt="<?= Html::encode($event->title) ?>">
+                        <div class="card-body">
+                            <h3><?= Html::encode($event->title) ?></h3>
+                            <span class="tag">Состоится <?= SupportService::formatDate($event->date) ?></span>
+                            <b>Читать подробнее</b>
+                        </div>
+                    </a>
+                </li>
+            <?php endforeach; ?>
         </ul>
-        <a class="big-button" href="#">Смотреть больше</a>
+        <a class="big-button" href="<?= Url::to(['site/events', 'count' => 4 + intval(Yii::$app->request->get('count', 4))])?>">Смотреть больше</a>
     </div>
 </section>
