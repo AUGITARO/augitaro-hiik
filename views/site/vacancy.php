@@ -27,14 +27,13 @@ $this->title = 'Community | Вакансии';
                     <a href="<?= Url::to(['site/vacancy-page', 'id' => $vacancy->id])?>">
                         <h3><?= Html::encode($vacancy->title) ?></h3>
                         <time class="tag">Вакансия <?= SupportService::formatDate($vacancy->date) ?></time>
-                        <p><?= Html::encode($vacancy->description) ?></p>
+                        <p><?= Html::encode(SupportService::cropTextContent($vacancy->description, 670)) ?></p>
                         <b>Читать подробнее</b>
                     </a>
                 </li>
             <?php endforeach; ?>
 
         </ul>
-
         <a class="big-button" href="<?= Url::to(['site/vacancy', 'count' => $newCount])?>">Смотреть больше</a>
     </div>
 </section>
