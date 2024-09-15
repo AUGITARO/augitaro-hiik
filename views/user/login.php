@@ -41,6 +41,7 @@ $this->title = 'Log-Admin';
                 <?= Html::submitInput('Вход', ['class' => 'form_button']) ?>
 
             <?php ActiveForm::end(); ?>
+            <a class="But" href="<?= Url::to(['user/signup'])?>">Создать аккаунт администратора</a>
         </div>
     </div>
 </section>

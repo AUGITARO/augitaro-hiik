@@ -14,7 +14,6 @@ use yii\web\Response;
 
 class UserController extends BaseController
 {
-
     public function behaviors(): array
     {
         return [
