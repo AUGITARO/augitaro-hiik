@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\forms\EventForm;
+use app\models\Token;
 use app\models\Vacancy\VacancyStoreForm;
 use app\services\Event\EventService;
 use app\services\Token\TokenService;
@@ -99,8 +100,13 @@ class AdminController extends BaseController
      */
     public function actionGenerateToken(): string
     {
-        $count = Yii::$app->request->get('count', self::TOKEN_COUNT);
-        $resultCount = (new TokenService())->createMany($count);
-        return "Вы успешно создали $resultCount токенов";
+        $tokensAlready = Token::find()->count(); //кол-во записей в таблице из activeRecord
+        if ($tokensAlready <= 100) {
+            $count = Yii::$app->request->get('count', self::TOKEN_COUNT);
+            $resultCount = (new TokenService())->createMany($count);
+            return "Вы успешно создали $resultCount токенов";
+        } else {
+            return "Токенов предостаточно) Создавать больше нет необходимости.";
+        }
     }
 }
