@@ -42,6 +42,7 @@ $this->title = 'Reg-Admin';
                 <?= Html::submitInput('Регистрация', ['class' => 'btn btn-primary']) ?>
 
                 <?php ActiveForm::end(); ?>
+                <a class="But" href="<?= Url::to(['user/login'])?>">Войти в аккаунт администратора</a>
             </div>
         </div>
     </div>
