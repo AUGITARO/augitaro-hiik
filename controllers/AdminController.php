@@ -101,12 +101,12 @@ class AdminController extends BaseController
     public function actionGenerateToken(): string
     {
         $tokensAlready = Token::find()->count(); //кол-во записей в таблице из activeRecord
-        if ($tokensAlready <= 100) {
-            $count = Yii::$app->request->get('count', self::TOKEN_COUNT);
+        $count = Yii::$app->request->get('count', self::TOKEN_COUNT);
+        if ($tokensAlready <= 100 and $count <= 100) {
             $resultCount = (new TokenService())->createMany($count);
             return "Вы успешно создали $resultCount токенов";
         } else {
-            return "Токенов предостаточно) Создавать больше нет необходимости.";
+            return "Отказано. Вы создаете\создали слишком много токенов";
         }
     }
 }
