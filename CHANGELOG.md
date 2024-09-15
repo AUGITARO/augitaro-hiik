@@ -7,13 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Add favicon [CH-8]
-- Add Events, Vacancy, Vacancy-page, Create-vacancy actions [CH-1]
-- Add static method formatDate (SupportService) [CH-3]
-- Add padding to sections [CH-4]
-- Schedule page removed [CH-4]
-- Add padding to inputs (suggestion form) [CH-4]
-
 ### Added
 
+- Added a button to go from login to registration [CH-1](https://webdot.youtrack.cloud/agiles/171-13/current?issue=CH-1)
 - Started semver changelog
